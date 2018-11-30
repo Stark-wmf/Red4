@@ -20,7 +20,7 @@ public class J {
 
         String driver = "com.mysql.cj.jdbc.Driver";
         //下面的变量设置根据自己的情况
-        String url = "jdbc:mysql://localhost/3306"; //数据库是webone
+        String url = "jdbc:mysql://localhost/3306"; 
         String username = "root";
         String password = "";
 
@@ -49,13 +49,13 @@ public class J {
         }
         int i = 0;
 
-        /* 往表QQ中添加属性email */
+       
         String sql = "insert into kc (kc,ls,sj,dd) values(?,?,?,?)";
         PreparedStatement pstmt;
 
         try {
 
-            //表示预编译的sql对象
+            //表示预编译的sql对象，这里出现了问题....,插入数据到数据库时显示operation没有statement给它去做了==只插入了一行数据
             pstmt = (PreparedStatement) conn.prepareStatement(sql);
 
             for (int j = 0; j < 9; j++) {
